@@ -1,9 +1,10 @@
 
-d3.json("samples.json").then(data =>{ 
-    var values = data.samples.sample_values;
-    var ids = data.samples.otu_ids;
-    var labels = data.samples.otu_lables;
-
+d3.json('./data/samples.json').then(function(data){
+  
+  var ids = data.samples[0].otu_ids;
+  var values = data.samples[0].sample_values.slice(0,10);
+  var labels = data.samples[0].otu_labels.slice(0,10);
+};
 
 // Trace1 for the Data
 var trace1 = {
@@ -22,6 +23,12 @@ var data = [trace1];
 Plotly.newPlot("bar", data);
 
 });
+
+
+
+
+
+
 
 
 // // On change to the DOM, call getData()
